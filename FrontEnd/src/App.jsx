@@ -1,3 +1,4 @@
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 import { useState, useRef } from "react";
 import axios from "axios";
 import Markdown from "react-markdown";
@@ -69,7 +70,7 @@ function App() {
     setLoading(true);
     setError("");
     try {
-      const response = await axios.post("http://localhost:3000/ai/get-review", {
+      const response = await axios.post(`${BACKEND_URL}/ai/get-review`, {
         code,
       });
       setReview(response.data);
